@@ -25,6 +25,7 @@ RUN apt-get install -y \
     curl \
     wget \
     telnet \
+    gettext-base \
     expect
 
 # Run as root
@@ -45,12 +46,14 @@ RUN npm install
 WORKDIR /
 
 # Add the steamcmd installation script
-ADD install.txt /install.txt
+ADD install.template.txt /install.template.txt
 
 # Copy scripts
 ADD start_7dtd.sh /start.sh
 ADD shutdown.sh /shutdown.sh
 ADD update_check.sh /update_check.sh
+ADD say.sh /say.sh
+ADD restart_countdown.sh /restart_countdown.sh
 
 # Copy the default server config in place
 ADD serverconfig_original.xml /serverconfig.xml

@@ -34,6 +34,7 @@ if [ "$SEVEN_DAYS_TO_DIE_START_MODE" = "2" ]; then
 	if [ ! -f "/steamcmd/7dtd/7DaysToDieServer.x86_64" ]; then
 		# Install 7 Days to Die from install.txt
 		echo "Installing/updating 7 Days to Die.. (this might take a while, be patient)"
+                envsubst < /install.template.txt > /install.txt
 		STEAMCMD_OUTPUT=$(bash /steamcmd/steamcmd.sh +runscript /install.txt | tee /dev/stdout)
 		STEAMCMD_ERROR=$(echo $STEAMCMD_OUTPUT | grep -q 'Error')
 		if [ ! -z "$STEAMCMD_ERROR" ]; then
@@ -46,6 +47,7 @@ if [ "$SEVEN_DAYS_TO_DIE_START_MODE" = "2" ]; then
 else
 	# Install/update 7 Days to Die from install.txt
 	echo "Installing/updating 7 Days to Die.. (this might take a while, be patient)"
+	envsubst < /install.template.txt > /install.txt
 	STEAMCMD_OUTPUT=$(bash /steamcmd/steamcmd.sh +runscript /install.txt | tee /dev/stdout)
 	STEAMCMD_ERROR=$(echo $STEAMCMD_OUTPUT | grep -q 'Error')
 	if [ ! -z "$STEAMCMD_ERROR" ]; then

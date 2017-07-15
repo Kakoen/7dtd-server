@@ -57,6 +57,7 @@ if [ "$OLD_BUILDID" = "$NEW_BUILDID" ]; then
 else
 	echo "Latest server build id ($NEW_BUILDID) is newer than the current one ($OLD_BUILDID), waiting for client update.."
 	echo $NEW_BUILDID > /steamcmd/7dtd/build.id
+        /restart_countdown.sh "Update from build $OLD_BUILDID to $NEW_BUILDID"
 	expect /shutdown.sh
 	exit
 fi

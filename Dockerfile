@@ -54,6 +54,7 @@ ADD shutdown.sh /shutdown.sh
 ADD update_check.sh /update_check.sh
 ADD say.sh /say.sh
 ADD restart_countdown.sh /restart_countdown.sh
+ADD saveworld.sh /saveworld.sh
 
 # Copy the default server config in place
 ADD serverconfig_original.xml /serverconfig.xml
